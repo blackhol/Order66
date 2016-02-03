@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scene's/Scene Robert.unity
+  isLoaded: 1
+  isActive: 1
