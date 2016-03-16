@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Grid : MonoBehaviour {
+public class AirGrid : MonoBehaviour {
 
 	public bool displayGridGizmos;
 	public LayerMask unwalkableMask;
