@@ -27,19 +27,19 @@ public class CharController : MonoBehaviour {
 		RotateView ();
 		Movement ();
 		Jump ();
-		DrawDebugs ();
+//		DrawDebugs ();
 	}
 
-	void DrawDebugs(){
-		// rot check
-		Debug.DrawRay (transform.position, transform.forward * 100, Color.cyan);
-
-		// dir check
-		Debug.DrawRay(offsetPos, -transform.right 	* range * 25, 	Color.magenta);
-		Debug.DrawRay(offsetPos, transform.right 	* range * 25, 	Color.red);
-		Debug.DrawRay(offsetPos, -transform.forward * range * 25, 	Color.blue);
-		Debug.DrawRay(offsetPos, transform.forward 	* range * 25, 	Color.green);
-	}
+//	void DrawDebugs(){
+//		// rot check
+//		Debug.DrawRay (transform.position, transform.forward * 100, Color.cyan);
+//
+//		// dir check
+//		Debug.DrawRay(offsetPos, -transform.right 	* range * 25, 	Color.magenta);
+//		Debug.DrawRay(offsetPos, transform.right 	* range * 25, 	Color.red);
+//		Debug.DrawRay(offsetPos, -transform.forward * range * 25, 	Color.blue);
+//		Debug.DrawRay(offsetPos, transform.forward 	* range * 25, 	Color.green);
+//	}
 
 	public void RotateView(){
 		rot.x -= Input.GetAxis ("Mouse Y") * rotateSpeed * Time.deltaTime;
