@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* 7S_CRCB_001
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
 using System.Collections;
 
 public class MeleeWeapon : WeaponManager {

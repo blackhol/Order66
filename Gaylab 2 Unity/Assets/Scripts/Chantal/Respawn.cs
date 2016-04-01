@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿/* 7S_RESP_001
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
 using System.Collections;
 
 public class Respawn : MonoBehaviour {
 
-	// Use this for initialization
+	[HideInInspector] public Vector3 respawnPos;
+
 	void Start () {
-	
+		respawnPos = transform.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void RespawnPlayer () {
+		transform.position = respawnPos;
 	}
 }

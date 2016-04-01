@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* 7S_WPSW_001 & 7S_CRCB_001
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 

@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* 7S_WPST_001 
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
 using System.Collections;
 
 public abstract class WeaponManager : MonoBehaviour {

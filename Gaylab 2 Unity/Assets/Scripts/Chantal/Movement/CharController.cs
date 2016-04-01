@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* 7S_CRCO_001 & 7S_CAMC_001
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
 using System.Collections;
 
 public class CharController : MonoBehaviour {
