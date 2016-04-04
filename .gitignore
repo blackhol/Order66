@@ -29,6 +29,10 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
+
 # =========================
 # Operating System Files
 # =========================
