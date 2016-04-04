@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Respawn : MonoBehaviour {
+public class PlayerRespawn : MonoBehaviour {
 
 	[HideInInspector] public Vector3 respawnPos;
 
