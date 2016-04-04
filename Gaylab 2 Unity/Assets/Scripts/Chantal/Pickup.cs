@@ -4,14 +4,21 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Pickup : MonoBehaviour {
+
+	public List<GameObject> rocketWeapons = new List<GameObject> ();
+	public List<GameObject> gunWeapons = new List<GameObject> ();
 
 	void OnCollisionStay(Collision col){
 		if (Input.GetButtonDown ("Pickup")) {
 			switch (col.transform.tag) {
-				case "Ammo":
-					PickupAmmo ();
+				case "AmmoGun":
+					PickupGunAmmo ();
+					break;
+				case "AmmoRocket":
+					PickupRocketAmmo ();
 					break;
 				case "Hp":
 					PickupHp ();
@@ -20,11 +27,17 @@ public class Pickup : MonoBehaviour {
 		}
 	}
 		
-	public void PickupAmmo(){
-		//refill ammo
-		print("ammo");
-		//GetComponent<GunWeapon>().Reload ();
+	public void PickupGunAmmo(){
+		for (int i = 0; i < rocketWeapons.Count; i++) {
+			gunWeapons[i].GetComponent<GunWeapon>().Reload ();
+		}
 
+	}
+
+	public void PickupRocketAmmo(){
+		for (int i = 0; i < rocketWeapons.Count; i++) {
+			rocketWeapons[i].GetComponent<RocketWeapon>().Reload ();
+		}
 	}
 
 	public void PickupHp(){

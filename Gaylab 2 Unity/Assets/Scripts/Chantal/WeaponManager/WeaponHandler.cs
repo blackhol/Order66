@@ -35,14 +35,14 @@ public class WeaponHandler : MonoBehaviour {
 	void MeleeSwitch(){
 		if (Input.GetButtonDown ("MeleeAttack") && swordActivated == false) {
 			swordActivated = true;
-			meleeWeapon.SetActive (true);
-			weapons [selectedWeapon].SetActive(false);
+		//	meleeWeapon.SetActive (true);
+		//	weapons [selectedWeapon].SetActive(false);
 		}
 
 		if (Input.GetButtonDown ("Fire1") && swordActivated == true) {
 			swordActivated = false;
-			meleeWeapon.SetActive (false);
-			weapons [selectedWeapon].SetActive(true);
+		//	meleeWeapon.SetActive (false);
+		//	weapons [selectedWeapon].SetActive(true);
 		}
 	}
 
@@ -68,9 +68,9 @@ public class WeaponHandler : MonoBehaviour {
 
 	void WeaponSwitch(){
 		for (int i = 0; i < weapons.Count; i++) {
-			weapons [i].SetActive(false);
+			//weapons [i].SetActive(false);
 		}
 
-		weapons [selectedWeapon].SetActive(true);
+		//weapons [selectedWeapon].SetActive(true);
 	}
 }
