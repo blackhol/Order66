@@ -10,6 +10,7 @@ public class Pickup : MonoBehaviour {
 
 	public List<GameObject> rocketWeapons = new List<GameObject> ();
 	public List<GameObject> gunWeapons = new List<GameObject> ();
+	public ShieldAndHealth shieldAndHealthScr;
 
 	void OnCollisionStay(Collision col){
 		if (Input.GetButtonDown ("Pickup")) {
@@ -21,7 +22,7 @@ public class Pickup : MonoBehaviour {
 					PickupRocketAmmo ();
 					break;
 				case "Hp":
-					PickupHp ();
+					PickupHp (col.gameObject.GetComponent<HealthPickup>().healAmount);
 					break;
 			}
 		}
@@ -36,13 +37,16 @@ public class Pickup : MonoBehaviour {
 
 	public void PickupRocketAmmo(){
 		for (int i = 0; i < rocketWeapons.Count; i++) {
-			rocketWeapons[i].GetComponent<RocketWeapon>().Reload ();
+			rocketWeapons[i].GetComponent<GunWeapon>().Reload ();
 		}
 	}
 
-	public void PickupHp(){
-		//refill hp
-		print("hp");
+	public void PickupHp(float heal){
+		if (shieldAndHealthScr.curHealth + heal <= shieldAndHealthScr.maxHealth) {
+			shieldAndHealthScr.curHealth += heal;
+		} else {
+			shieldAndHealthScr.curHealth = shieldAndHealthScr.maxHealth;
+		}
 	}
 
 }
