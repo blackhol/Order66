@@ -21,8 +21,25 @@ public class GunWeapon : GunManager {
 				curAmmo--;
 				var camTransform = Camera.main.transform;
 				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
-					if (hit.transform.tag == "Enemy") {
-						print ("Shot an enemy!!");
+					if (hit.transform.parent.tag == "Enemy") {
+						EnemyHealth enemyHealthScr = hit.transform.parent.GetComponent<EnemyHealth> ();
+						switch (hit.transform.tag) {
+							case "Head":
+								enemyHealthScr.CheckHealth (strength * 3);
+								break;
+							case "Body":
+								enemyHealthScr.CheckHealth (strength * 2);
+								break;
+							case "Legs":
+								enemyHealthScr.CheckHealth (strength * 1);
+								break;
+							case "Wings":
+								enemyHealthScr.CheckHealth (strength * 1);
+								break;
+							default:
+								print ("enemy is missing tags");
+								break;
+						}
 					}
 				}
 				StartCoroutine(AttackCoolDown());
