@@ -9,11 +9,13 @@ public class MeleeWeapon : WeaponManager {
 
 	public override void OnEnable() {
 		weaponHandler.weaponAttack = Attack;
+		weaponHandler.aim = null;
+		crosshair.range = range;
 	}
 
 	public override void Attack(){
 		if (Input.GetButtonDown ("MeleeAttack")) {
-			var camTransform = Camera.main.transform;
+			Transform camTransform = Camera.main.transform;
 			if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
 				if (hit.transform.parent.tag == "Enemy") {
 					EnemyHealth enemyHealthScr = hit.transform.parent.GetComponent<EnemyHealth> ();

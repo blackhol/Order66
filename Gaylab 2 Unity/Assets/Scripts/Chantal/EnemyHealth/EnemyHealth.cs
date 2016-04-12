@@ -1,31 +1,32 @@
-﻿using UnityEngine;
+﻿/* 7S_AIHP_001 
+ * Made by: Chantal
+ */ 
+
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
 
-	public float maxHealth = 1;
-	[HideInInspector] public float curHealth;
-	private bool showHP = false;
+	public float maxHealth = 5;
+	[HideInInspector] public float 	curHealth;
 
 	void Start () {
 		curHealth = maxHealth;
 	}
-		
-	public void CheckHealth(float dmg){
-		showHP = true;
+
+	public void CheckHealth(float dmg){		
 		if (curHealth - dmg <= 0) {
+			curHealth = 0;
 			Dead ();
 		} else {
 			curHealth -= dmg;
-			print (curHealth);
 		}
 	}
 
 	public void Dead(){
 		//dead effects
-		print("dead");
-		Destroy(gameObject);
+		float deadAnimationLength = 3 +0.5f;
+		Destroy(gameObject, deadAnimationLength);
 	}
-
-
 }

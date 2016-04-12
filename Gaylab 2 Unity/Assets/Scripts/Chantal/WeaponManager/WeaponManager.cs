@@ -12,6 +12,7 @@ public abstract class WeaponManager : MonoBehaviour {
 	public float coolDown;
 	public bool mayAttack = true;
 	public WeaponHandler weaponHandler;
+	public Crosshair crosshair;
 	public RaycastHit hit;
 
 	public abstract void Attack();

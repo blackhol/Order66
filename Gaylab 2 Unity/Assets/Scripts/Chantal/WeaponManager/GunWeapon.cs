@@ -13,13 +13,14 @@ public class GunWeapon : GunManager {
 	public override void OnEnable() {
 		weaponHandler.weaponAttack = Attack;
 		weaponHandler.aim = Aiming;
+		crosshair.range = range;
 	}
 
 	public override void Attack(){
 		if (Input.GetButtonDown ("Fire1")) {
 			if (curAmmo >= useAmmo && mayAttack) {
 				curAmmo--;
-				var camTransform = Camera.main.transform;
+				Transform camTransform = Camera.main.transform;
 				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
 					if (hit.transform.parent.tag == "Enemy") {
 						EnemyHealth enemyHealthScr = hit.transform.parent.GetComponent<EnemyHealth> ();

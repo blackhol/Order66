@@ -14,6 +14,7 @@ public class RocketWeapon : GunManager {
 	public override void OnEnable() {
 		weaponHandler.weaponAttack = Attack;
 		weaponHandler.aim = Aiming;
+		crosshair.range = range;
 	}
 
 	public override void Attack(){
