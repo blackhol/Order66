@@ -16,9 +16,14 @@ public class CharController : MonoBehaviour {
 	public float range = 1;
 	public float floorRange = 0.5f;
 
+	Vector3	oldPos;
 	float moveSpeed = 5;
+	bool mayDash = true;
 	public float walkSpeed = 5;
-	public float dashSpeed = 10;
+	public float dashSpeed = 20;
+	public float dashDistrance = 10;
+	public float dashCooldown = 2;
+
 
 	public float jumpStrength = 1;
 	public int maxJumpCount = 1;
@@ -31,6 +36,7 @@ public class CharController : MonoBehaviour {
 		RotateView ();
 		Movement ();
 		Jump ();
+		DashDistance ();
 //		DrawDebugs ();
 	}
 
@@ -72,24 +78,41 @@ public class CharController : MonoBehaviour {
 				moveDir.z = ver;
 			}
 		}
-
-		transform.Translate(new Vector3 (moveDir.x, 0, moveDir.z) * MoveSpeedCalculation() * Time.deltaTime, Space.Self);
+			
+		if (Input.GetButtonDown("Dash")){
+			if (mayDash) {
+				StartCoroutine(StartDash(moveDir));
+			}
+		} else {
+			transform.Translate(new Vector3 (moveDir.x, 0, moveDir.z) * walkSpeed * Time.deltaTime, Space.Self);
+		}
 	}
 
-	public float MoveSpeedCalculation(){
-		if (Input.GetButton("Dash")){
-			moveSpeed = dashSpeed;
-		} else {
-			moveSpeed = walkSpeed;
+	public void DashDistance (){
+		if (!mayDash) {
+			if (Vector3.Distance (oldPos, transform.position) >= dashDistrance) {
+				gameObject.GetComponent<Rigidbody> ().Sleep ();
+			}
 		}
-		return (moveSpeed);
+	}
+
+	public IEnumerator StartDash (Vector3 moveDir){
+		mayDash = false;
+		oldPos = transform.position; 
+
+		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
+		rb.velocity = rb.velocity + moveDir * dashSpeed;
+
+		yield return new WaitForSeconds(dashCooldown);
+		mayDash = true;
 	}
 
 	public void Jump () {
 		if (Input.GetButtonDown("Jump")){
 			if (!Physics.Raycast (offsetPos, transform.up, range) && curJumpCount < maxJumpCount) {
 				curJumpCount++;
-				gameObject.GetComponent<Rigidbody> ().velocity = gameObject.GetComponent<Rigidbody> ().velocity + Vector3.up * jumpStrength;
+				Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
+				rb.velocity = rb.velocity + Vector3.up * jumpStrength;
 			} 
 		}else if(Physics.Raycast (offsetPos, -transform.up, range + floorRange)) {
 			curJumpCount = 0;
