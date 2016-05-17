@@ -22,8 +22,8 @@ public class GunWeapon : GunManager {
 				curAmmo--;
 				Transform camTransform = Camera.main.transform;
 				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
-					if (hit.transform.parent.tag == "Enemy") {
-						EnemyHealth enemyHealthScr = hit.transform.parent.GetComponent<EnemyHealth> ();
+					if (hit.transform.root.tag == "Enemy") {
+						EnemyHealth enemyHealthScr = hit.transform.root.GetComponent<EnemyHealth> ();
 						switch (hit.transform.tag) {
 							case "Head":
 								enemyHealthScr.CheckHealth (strength * 3);

@@ -25,8 +25,8 @@ public class Crosshair : MonoBehaviour {
 		Transform camTransform = Camera.main.transform;
 
 		if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
-			if (hit.transform.parent != null && hit.transform.parent.tag == "Enemy"){
-				EnemyHealth enemyHealth = hit.transform.parent.GetComponent<EnemyHealth>();
+			if (hit.transform.parent != null && hit.transform.root.tag == "Enemy"){
+				EnemyHealth enemyHealth = hit.transform.root.GetComponent<EnemyHealth>();
 				hpFill.fillAmount = (enemyHealth.curHealth / enemyHealth.maxHealth);	
 
 				hitRange = true;
