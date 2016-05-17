@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/* 7S_MMAP_001
+ * Made by: Chantal
+ * MiniMap.cs + AddBlip.cs + blip.cs
+ */ 
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
