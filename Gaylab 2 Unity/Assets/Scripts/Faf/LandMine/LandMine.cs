@@ -9,7 +9,7 @@ public class LandMine : MonoBehaviour
     public float expRadius;
     public float expDamage;
     private Collider[] hitObjects;
-    public HealthScript hpScript;
+	public ShieldAndHealth hpScript;
     public LayerMask objectLayer;
     public float radius;
     public float expTime; // Same time as ParticlePlayTime
