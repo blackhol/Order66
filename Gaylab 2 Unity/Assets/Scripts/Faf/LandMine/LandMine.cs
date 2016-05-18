@@ -8,40 +8,25 @@ public class LandMine : MonoBehaviour
     public float expHeight;
     public float expRadius;
     public float expDamage;
-    private Collider[] hitObjects;
-	public ShieldAndHealth hpScript;
-    public LayerMask objectLayer;
-    public float radius;
+    public HealthScript hpScript;
     public float expTime; // Same time as ParticlePlayTime
 
     public ParticleSystem expParticle;
-
-
     // Update is called once per frame
     void Start()
     {
         expParticle.Pause();
         expTime = expParticle.duration;
     }
-    void Update()
+    void OnTriggerEnter(Collider hitcol)
     {
-        Explosion();
-    }
-
-    void Explosion()
-    {
-        hitObjects = Physics.OverlapSphere(transform.position, radius, objectLayer);
-        foreach (Collider hitcol in hitObjects)
+        if (hitcol.tag == "tagname") // Tagname can be changed
         {
-            Debug.Log(hitcol.gameObject);
             Rigidbody rb = hitcol.GetComponent<Rigidbody>();
-            if (rb && hitcol.tag == "tagname") // Tagname can be changed
-            {
-                expParticle.Play();
-                rb.AddExplosionForce(expPower, transform.position, expRadius, expHeight);
-                hpScript.curHealth -= expDamage;
-                Destroy(gameObject, expTime);
-            }
+            rb.AddExplosionForce(expPower, transform.position, expRadius, expHeight);
+            expParticle.Play();
+            hpScript.curHealth -= expDamage;
+            Destroy(gameObject, expTime);
         }
     }
 }
