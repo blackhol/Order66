@@ -1,6 +1,6 @@
 ﻿/* 7S_MMAP_001
  * Made by: Chantal
- * MiniMap.cs + AddBlip.cs + blip.cs
+ * MiniMap.cs + AddBlip.cs + Blip.cs
  */ 
 
 using UnityEngine;
