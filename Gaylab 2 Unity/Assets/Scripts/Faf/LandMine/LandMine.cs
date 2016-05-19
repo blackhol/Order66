@@ -8,7 +8,7 @@ public class LandMine : MonoBehaviour
     public float expHeight;
     public float expRadius;
     public float expDamage;
-    public HealthScript hpScript;
+	public ShieldAndHealth hpScript;
     public float expTime; // Same time as ParticlePlayTime
 
     public ParticleSystem expParticle;
