@@ -20,7 +20,7 @@ public class CharController : MonoBehaviour {
 	float moveSpeed = 5;
 	bool mayDash = true;
 	public float walkSpeed = 5;
-	public float dashSpeed = 20;
+	public float dashSpeed = 800;
 	public float dashDistrance = 10;
 	public float dashCooldown = 2;
 
@@ -101,7 +101,8 @@ public class CharController : MonoBehaviour {
 		oldPos = transform.position; 
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
-		rb.velocity = rb.velocity + moveDir * dashSpeed;
+		//rb.velocity = rb.velocity + moveDir * dashSpeed;
+		rb.AddForce(moveDir * dashSpeed);
 
 		yield return new WaitForSeconds(dashCooldown);
 		mayDash = true;
