@@ -84,7 +84,7 @@ public class CharController : MonoBehaviour {
 				StartCoroutine(StartDash(moveDir));
 			}
 		} else {
-			transform.Translate(new Vector3 (moveDir.x, 0, moveDir.z) * walkSpeed * Time.deltaTime, Space.Self);
+			transform.Translate(new Vector3 (moveDir.x, 0, moveDir.z) * moveSpeed * Time.deltaTime, Space.Self);
 		}
 	}
 
@@ -102,7 +102,8 @@ public class CharController : MonoBehaviour {
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
 		//rb.velocity = rb.velocity + moveDir * dashSpeed;
-		rb.AddForce(moveDir * dashSpeed);
+		//rb.AddForce(moveDir * dashSpeed);
+		rb.AddRelativeForce(moveDir * dashSpeed);
 
 		yield return new WaitForSeconds(dashCooldown);
 		mayDash = true;
