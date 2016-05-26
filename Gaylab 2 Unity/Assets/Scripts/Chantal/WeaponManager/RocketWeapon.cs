@@ -18,13 +18,15 @@ public class RocketWeapon : GunManager {
 	}
 
 	public override void Attack(){
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown ("Fire1") && menu.menutabs == Menu.Menutabs.Gameplay) {
 			if (curAmmo >= useAmmo && mayAttack) {
 				curAmmo--;
 				Transform camTransform = Camera.main.transform;
 				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
-					if (hit.transform.tag == "Enemy") {
+					if (hit.transform.root.tag == "Enemy") {
 						print ("Shot an enemy!!");
+						//spawn rocket
+							//rocket do dmg
 					}
 				}
 				StartCoroutine(AttackCoolDown());

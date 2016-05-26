@@ -17,7 +17,7 @@ public class GunWeapon : GunManager {
 	}
 
 	public override void Attack(){
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown ("Fire1") && menu.menutabs == Menu.Menutabs.Gameplay) {
 			if (curAmmo >= useAmmo && mayAttack) {
 				curAmmo--;
 				Transform camTransform = Camera.main.transform;

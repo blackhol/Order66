@@ -32,7 +32,7 @@ public class CharController : MonoBehaviour {
 	private Vector3 offsetPos;
 
 
-	void Update () {
+	void FixedUpdate () {
 		RotateView ();
 		Movement ();
 		Jump ();
@@ -101,8 +101,6 @@ public class CharController : MonoBehaviour {
 		oldPos = transform.position; 
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
-		//rb.velocity = rb.velocity + moveDir * dashSpeed;
-		//rb.AddForce(moveDir * dashSpeed);
 		rb.AddRelativeForce(moveDir * dashSpeed);
 
 		yield return new WaitForSeconds(dashCooldown);

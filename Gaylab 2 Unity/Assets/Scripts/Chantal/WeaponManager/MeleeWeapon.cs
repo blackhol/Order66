@@ -14,7 +14,7 @@ public class MeleeWeapon : WeaponManager {
 	}
 
 	public override void Attack(){
-		if (Input.GetButtonDown ("MeleeAttack")) {
+		if (Input.GetButtonDown ("MeleeAttack")  && menu.menutabs == Menu.Menutabs.Gameplay) {
 			Transform camTransform = Camera.main.transform;
 			if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
 				if (hit.transform.root.tag == "Enemy") {
