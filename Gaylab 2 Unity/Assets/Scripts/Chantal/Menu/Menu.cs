@@ -19,8 +19,7 @@ public class Menu : MonoBehaviour {
 
 	public Menutabs menutabs;
 	public GameObject[] menuObjects;
-	public GameObject startPageObject;
-	public GameObject optionsObject;
+	public GameObject[] pageObject;
 
 	private bool inPause = false;
 
@@ -70,16 +69,21 @@ public class Menu : MonoBehaviour {
 		for (int i = 0; i < menuObjects.Length; i++) {
 			menuObjects [i].SetActive (false);
 		}
-		startPageObject.SetActive (false);
-		optionsObject.SetActive (false);
 
-		if (num <= 1) {
-			startPageObject.SetActive (true);
-		} else if (num >= 3 && num <= 5) {
-			optionsObject.SetActive (true);
+		for (int j = 0; j < pageObject.Length; j++) {
+			pageObject [j].SetActive (false);
 		} 
 
-		if (num < 6) {
+		if (num <= 1) {
+			pageObject[0].SetActive (true); //startPageObject
+		} else if (num == 2){
+			pageObject[1].SetActive (true); //gameMenuObject
+		} else if (num >= 3 && num <= 5) {
+			pageObject[1].SetActive (true); //gameMenuObject
+			pageObject[2].SetActive (true); //optionsObject
+		} 
+
+		if (num != (int)Menutabs.Gameplay) {
 			menuObjects [num].SetActive (true);
 		}
 	}
