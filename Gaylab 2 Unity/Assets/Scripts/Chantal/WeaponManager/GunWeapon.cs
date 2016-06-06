@@ -21,7 +21,11 @@ public class GunWeapon : GunManager {
 			if (curAmmo >= useAmmo && mayAttack) {
 				curAmmo--;
 				Transform camTransform = Camera.main.transform;
-				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
+				Vector3 tarPoint = camTransform.position;
+				tarPoint.y += 1;
+
+				if (Physics.Raycast (tarPoint, camTransform.forward, out hit, range)) {
+					//Debug.DrawRay (tarPoint, camTransform.forward * 2000, Color.magenta);
 					if (hit.transform.root.tag == "Enemy") {
 						EnemyHealth enemyHealthScr = hit.transform.root.GetComponent<EnemyHealth> ();
 						switch (hit.transform.tag) {

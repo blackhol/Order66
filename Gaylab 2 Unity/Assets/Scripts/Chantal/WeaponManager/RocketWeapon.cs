@@ -2,11 +2,14 @@
  * Made by: Chantal
  */ 
 
-
 using UnityEngine;
 using System.Collections;
 
 public class RocketWeapon : GunManager {
+
+	public GameObject rocket;
+	public Transform rocketSpawn;
+
 	void Start (){
 		curAmmo = maxAmmo;
 	}
@@ -21,14 +24,11 @@ public class RocketWeapon : GunManager {
 		if (Input.GetButtonDown ("Fire1") && menu.menutabs == Menu.Menutabs.Gameplay) {
 			if (curAmmo >= useAmmo && mayAttack) {
 				curAmmo--;
-				Transform camTransform = Camera.main.transform;
-				if (Physics.Raycast (camTransform.position, camTransform.forward, out hit, range)) {
-					if (hit.transform.root.tag == "Enemy") {
-						print ("Shot an enemy!!");
-						//spawn rocket
-							//rocket do dmg
-					}
-				}
+
+				GameObject newRocket = Instantiate (rocket, rocketSpawn.position, transform.rotation) as GameObject;
+				newRocket.GetComponent<AmmoRocket> ().strength = strength;
+				newRocket.GetComponent<AmmoRocket> ().range = range;
+
 				StartCoroutine(AttackCoolDown());
 			} else {
 				print ("Not enough ammo or may not shoot yet");
