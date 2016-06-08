@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour {
 		SoundOptions,
 		GraphicOptions,
 		KeySettingOptions,
+		Credits,
 		Gameplay
 	};
 
@@ -25,7 +26,7 @@ public class Menu : MonoBehaviour {
 
 	void Start(){
 		Time.timeScale = 0;
-		SetMenu (0);
+		SetMenu ((int)Menutabs.StartPage, 1);
 	}
 
 	void Update(){
@@ -40,32 +41,35 @@ public class Menu : MonoBehaviour {
 	void CheckTab(){
 		switch (menutabs) {
 			case Menutabs.StartPage:
-				SetMenu (0);
+			SetMenu ((int)Menutabs.StartPage, 1);
 				break;
 			case Menutabs.Difficulty:
-				SetMenu (1);
+				SetMenu ((int)Menutabs.Difficulty, 1);
 				break;
 			case Menutabs.Pause:
-				SetMenu (2);
+				SetMenu ((int)Menutabs.Pause, 2);
 				break;
 			case Menutabs.SoundOptions:
-				SetMenu (3);
+				SetMenu ((int)Menutabs.SoundOptions, 3);
 				break;
 			case Menutabs.GraphicOptions:
-				SetMenu (4);
+				SetMenu ((int)Menutabs.GraphicOptions, 3);
 				break;
 			case Menutabs.KeySettingOptions:
-				SetMenu (5);
+				SetMenu ((int)Menutabs.KeySettingOptions, 3);
+				break;
+			case Menutabs.Credits:
+				SetMenu ((int)Menutabs.Credits, 1);
 				break;
 			case Menutabs.Gameplay:
-				SetMenu (6);
+				SetMenu ((int)Menutabs.Gameplay, 0);
 				Time.timeScale = 1;
 				inPause = false;
 				break;
 		}
 	}
 
-	void SetMenu(int num){
+	void SetMenu(int num, int showId){
 		for (int i = 0; i < menuObjects.Length; i++) {
 			menuObjects [i].SetActive (false);
 		}
@@ -74,14 +78,14 @@ public class Menu : MonoBehaviour {
 			pageObject [j].SetActive (false);
 		} 
 
-		if (num <= 1) {
+		if (showId == 1) {
 			pageObject[0].SetActive (true); //startPageObject
-		} else if (num == 2){
+		} else if (showId == 2){
 			pageObject[1].SetActive (true); //gameMenuObject
-		} else if (num >= 3 && num <= 5) {
+		} else if (showId == 3){
 			pageObject[1].SetActive (true); //gameMenuObject
 			pageObject[2].SetActive (true); //optionsObject
-		} 
+		}
 
 		if (num != (int)Menutabs.Gameplay) {
 			menuObjects [num].SetActive (true);
@@ -117,7 +121,7 @@ public class Menu : MonoBehaviour {
 			//start very hard level game
 				break;
 		}
-		ChangeTab (6);
+		ChangeTab ((int)Menutabs.Gameplay);
 		Time.timeScale = 1;
 	}
 

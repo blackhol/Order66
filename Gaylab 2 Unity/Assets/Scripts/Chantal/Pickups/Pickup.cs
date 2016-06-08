@@ -37,7 +37,7 @@ public class Pickup : MonoBehaviour {
 
 	public void PickupRocketAmmo(){
 		for (int i = 0; i < rocketWeapons.Count; i++) {
-			rocketWeapons[i].GetComponent<GunWeapon>().Reload ();
+			rocketWeapons[i].GetComponent<RocketWeapon>().Reload ();
 		}
 	}
 

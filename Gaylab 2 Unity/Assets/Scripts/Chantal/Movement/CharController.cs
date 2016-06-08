@@ -6,7 +6,6 @@ using UnityEngine;
 using System.Collections;
 
 public class CharController : MonoBehaviour {
-
 	public Transform camera;
 	public float rotateSpeed = 25;
 	Vector2 rot;
@@ -23,14 +22,14 @@ public class CharController : MonoBehaviour {
 	public float dashSpeed = 800;
 	public float dashDistrance = 10;
 	public float dashCooldown = 2;
-
+	public float dashDmg = 0;
 
 	public float jumpStrength = 1;
 	public int maxJumpCount = 1;
 	int curJumpCount;
+	[HideInInspector] public bool canJump = false;
 
 	private Vector3 offsetPos;
-
 
 	void FixedUpdate () {
 		RotateView ();
@@ -108,14 +107,16 @@ public class CharController : MonoBehaviour {
 	}
 
 	public void Jump () {
-		if (Input.GetButtonDown("Jump")){
-			if (!Physics.Raycast (offsetPos, transform.up, range) && curJumpCount < maxJumpCount) {
-				curJumpCount++;
-				Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
-				rb.velocity = rb.velocity + Vector3.up * jumpStrength;
-			} 
-		}else if(Physics.Raycast (offsetPos, -transform.up, range + floorRange)) {
-			curJumpCount = 0;
+		if (canJump) {
+			if (Input.GetButtonDown ("Jump")) {
+				if (!Physics.Raycast (offsetPos, transform.up, range) && curJumpCount < maxJumpCount) {
+					curJumpCount++;
+					Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
+					rb.velocity = rb.velocity + Vector3.up * jumpStrength;
+				} 
+			} else if (Physics.Raycast (offsetPos, -transform.up, range + floorRange)) {
+				curJumpCount = 0;
+			}
 		}
 	}
 }
