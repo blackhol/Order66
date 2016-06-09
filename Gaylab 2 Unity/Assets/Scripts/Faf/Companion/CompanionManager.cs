@@ -19,6 +19,7 @@ public class CompanionManager : MonoBehaviour
     public Transform sphereCastTar; // Should be on the ground, onder de companion.
     public LayerMask enemyLayermask;
     public Collider[] EnemyColliders;
+    public float pickups;
 
     void Start ()
     {
