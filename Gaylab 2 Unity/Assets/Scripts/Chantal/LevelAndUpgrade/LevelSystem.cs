@@ -13,6 +13,7 @@ public class LevelSystem : MonoBehaviour {
 	public Text expTxt;
 	public Text lvlTxt;
 	public Image expBar;
+	public Upgrade upgrade;
 
 	private int level = 1;
 	private float curExp = 0;
@@ -24,16 +25,19 @@ public class LevelSystem : MonoBehaviour {
 	}
 
 	public void GainExp(float exp){
+		float neededExp = ExpToNextLevel()-curExp;
 		if (level < maxLevel) {
-			if (exp < ExpToNextLevel()) {
+			if (exp < neededExp) {
 				curExp += exp;
-			} else if (exp == ExpToNextLevel()) {
+			} else if (exp == neededExp) {
 				level++;
+				upgrade.AddPoints ();
 				curExp = 0;
 			} else {
 				float leftOverExp = 0;
-				leftOverExp = exp - (ExpToNextLevel() - curExp);
+				leftOverExp = exp - neededExp;
 				level++;
+				upgrade.AddPoints ();
 				if (level < maxLevel) {
 					curExp = leftOverExp;
 				}

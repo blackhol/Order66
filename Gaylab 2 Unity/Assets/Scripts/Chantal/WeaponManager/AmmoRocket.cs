@@ -9,8 +9,8 @@ public class AmmoRocket : MonoBehaviour {
 
 	[HideInInspector] public float strength;
 	[HideInInspector] public float range;
-	public float speed;
-	public float sphereRadius;
+	public float speed = 2;
+	public float sphereRadius = 1;
 	private Vector3 startPos;
 	Collider[] hitColliders;
 
@@ -18,41 +18,35 @@ public class AmmoRocket : MonoBehaviour {
 		startPos = transform.position;
 	}
 
-	void Update () {
-		hitColliders = Physics.OverlapSphere (transform.position, sphereRadius);
+	void Update () {		
 		Move ();
 	}
-
+		
 	void Move(){
-		if (Vector3.Distance (transform.position, startPos) < range) {
+		if (Vector3.Distance (transform.position, startPos) < range && !Physics.Raycast (transform.position, transform.forward, 1)) {
 			transform.Translate (Vector3.forward * speed);
 		} else {
 			//destroy effect
 			Dmg ();
-			Destroy (gameObject);
 		}
 	}
-
-	void OnCollisionEnter(Collision coll){
-//		if (coll.transform.root.tag == "Enemy") {
-//			//on hit enemy do radius dmg
-//			print ("testworks");
-//		} 
-//		Dmg ();
-	}
-
-	void Dmg(){
-		for (int i = 0; i < hitColliders.Length; i++) {
-			if (hitColliders [i].transform.root.tag == "Enemy") {
-				print ("enemy");
-				EnemyHealth enemyHealthScr = hitColliders [i].transform.root.GetComponent<EnemyHealth> ();
-				enemyHealthScr.CheckHealth (strength);
-			} else {
-				print ("something else " + hitColliders[i].name);
+		
+	void Dmg(){	
+		hitColliders = Physics.OverlapSphere (transform.position, sphereRadius);	
+		if (hitColliders != null){
+			for (int i = 0; i < hitColliders.Length; i++){
+				if (hitColliders [i].transform.root.tag == "Enemy") {
+					EnemyHealth enemyHealthScr = hitColliders [i].transform.root.GetComponent<EnemyHealth> ();
+					enemyHealthScr.CheckHealth (strength);
+				} 
 			}
-			print ("i = " +i +" / hitColliders length:" + hitColliders.Length);
 		}
-
+		Destroy (gameObject);
 	}
+
+//	void OnDrawGizmos(){
+//		Gizmos.color = Color.magenta;
+//		Gizmos.DrawWireSphere (transform.position, sphereRadius);
+//	}
 
 }
