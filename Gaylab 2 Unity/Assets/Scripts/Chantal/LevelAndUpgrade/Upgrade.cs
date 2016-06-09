@@ -8,7 +8,6 @@ public class Upgrade : MonoBehaviour {
 	public RocketWeapon rocketWeapon;
 	public MeleeWeapon meleeWeapon;
 	public CharController charController;
-	//public Text upgradeInfoTxt;
 	public Text[] upgradeLevelTxt;
 	public Text upgradePointTxt;
 	[HideInInspector] public int upgradePoint;
@@ -121,5 +120,10 @@ public class Upgrade : MonoBehaviour {
 
 	void DisableUpgrade(GameObject clickedBt){
 		clickedBt.GetComponent<Button> ().interactable = false;
+	}
+	void DisableButtons(){
+		//for (int i = 0; i < xx; i++){
+		//	xx[i].GetComponent<Button> ().interactable = false;
+		//}
 	}
 }
