@@ -10,9 +10,15 @@ public class Upgrade : MonoBehaviour {
 	public CharController charController;
 	public Text[] upgradeLevelTxt;
 	public Text upgradePointTxt;
+	public GameObject[] upgradeBts;
+	public float upgradedDashDmg = 5;
 	[HideInInspector] public int upgradePoint;
 
 	int[] upgradeCount = new int[4];
+
+	void OnEnable(){
+		UpgradeAvaiability ();
+	}
 
 	void Start(){
 		upgradePointTxt.text = "Upgrade Points: " + upgradePoint;
@@ -38,13 +44,13 @@ public class Upgrade : MonoBehaviour {
 				gunWeaon.coolDown = 0;
 				gunWeaon.maxAmmo += (int)(gunWeaon.maxAmmo * 0.5);
 				gunWeaon.curAmmo = gunWeaon.maxAmmo;
-				DisableUpgrade (EventSystem.current.currentSelectedGameObject);
 				break;
 			}
 			upgradePoint--;
 			upgradeCount [0]++;
 			upgradeLevelTxt [0].text = upgradeCount [0] + "/3";
 			upgradePointTxt.text = "Upgrade Points: " + upgradePoint;
+			UpgradeAvaiability ();
 		}
 	}
 
@@ -63,13 +69,13 @@ public class Upgrade : MonoBehaviour {
 				rocketWeapon.strength *= 1.50f;
 				rocketWeapon.maxAmmo += (int)(rocketWeapon.maxAmmo * 0.25);
 				rocketWeapon.curAmmo = rocketWeapon.maxAmmo;
-				DisableUpgrade (EventSystem.current.currentSelectedGameObject);
 				break;
 			}
 			upgradePoint--;
 			upgradeCount [1]++;
 			upgradeLevelTxt [1].text = upgradeCount [1] + "/3";
 			upgradePointTxt.text = "Upgrade Points: " + upgradePoint;
+			UpgradeAvaiability ();
 		}
 	}
 
@@ -85,13 +91,13 @@ public class Upgrade : MonoBehaviour {
 			case 2: 
 				rocketWeapon.strength *= 1.50f;
 				rocketWeapon.range *= 1.25f;
-				DisableUpgrade (EventSystem.current.currentSelectedGameObject);
 				break;
 			}
 			upgradePoint--;
 			upgradeCount [2]++;
 			upgradeLevelTxt [2].text = upgradeCount [2] + "/3";
 			upgradePointTxt.text = "Upgrade Points: " + upgradePoint;
+			UpgradeAvaiability ();
 		}
 	}
 
@@ -107,23 +113,28 @@ public class Upgrade : MonoBehaviour {
 				charController.dashDistrance *= 1.25f;
 				break;
 			case 2: 
-				charController.dashDmg += 10;
-				DisableUpgrade (EventSystem.current.currentSelectedGameObject);
+				charController.dashDmg += upgradedDashDmg;
 				break;
 			}
 			upgradePoint--;
 			upgradeCount [3]++;
 			upgradeLevelTxt [3].text = upgradeCount [3] + "/3";
 			upgradePointTxt.text = "Upgrade Points: " + upgradePoint;
+			UpgradeAvaiability ();
 		}
 	}
 
-	void DisableUpgrade(GameObject clickedBt){
-		clickedBt.GetComponent<Button> ().interactable = false;
-	}
-	void DisableButtons(){
-		//for (int i = 0; i < xx; i++){
-		//	xx[i].GetComponent<Button> ().interactable = false;
-		//}
+	void UpgradeAvaiability(){
+		for (int i = 0; i < upgradeBts.Length; i++){
+			upgradeBts[i].GetComponent<Button> ().interactable = false;
+		}
+
+		if (upgradePoint > 0){
+			for (int j = 0; j < upgradeBts.Length; j++){
+				if (upgradeCount [j] <= 2) {
+					upgradeBts [j].GetComponent<Button> ().interactable = true;
+				}
+			}
+		}
 	}
 }

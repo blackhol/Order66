@@ -39,7 +39,7 @@ public class UpgradeInfo : MonoBehaviour {
 			"\n~~~~~~~~~~~~~~~~~~~~~~~~"+
 			"\nLevel 1: enable jump ability." + 
 			"\n\nLevel 2: walk and dash speed increase." +
-			"\n\nLevel 3: dash may give damage to enemies.";
+			"\n\nLevel 3: dash through enemies and give damage when doing so.";
 	}
 
 	public void StandardInfo(){

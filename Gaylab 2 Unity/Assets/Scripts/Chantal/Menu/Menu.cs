@@ -8,14 +8,15 @@ using System.Collections;
 public class Menu : MonoBehaviour {
 
 	public enum Menutabs {
-		StartPage,
-		Difficulty,
-		Pause,
-		SoundOptions,
-		GraphicOptions,
-		KeySettingOptions,
-		Credits,
-		Gameplay
+		StartPage,			//0
+		Difficulty,			//1
+		Pause,				//2
+		SoundOptions,		//3
+		GraphicOptions,		//4
+		KeySettingOptions,	//5
+		Credits,			//6
+		Upgrade,			//7
+		Gameplay			//8
 	};
 
 	public Menutabs menutabs;
@@ -23,6 +24,7 @@ public class Menu : MonoBehaviour {
 	public GameObject[] pageObject;
 
 	private bool inPause = false;
+	private bool inUpgrades = false;
 
 	void Start(){
 		Time.timeScale = 0;
@@ -31,6 +33,7 @@ public class Menu : MonoBehaviour {
 
 	void Update(){
 		Pause ();
+		UpgradeTab ();
 	}
 
 	public void ChangeTab(int id){
@@ -60,6 +63,9 @@ public class Menu : MonoBehaviour {
 				break;
 			case Menutabs.Credits:
 				SetMenu ((int)Menutabs.Credits, 1);
+				break;
+			case Menutabs.Upgrade:
+				SetMenu ((int)Menutabs.Upgrade, 0);
 				break;
 			case Menutabs.Gameplay:
 				SetMenu ((int)Menutabs.Gameplay, 0);
@@ -101,6 +107,23 @@ public class Menu : MonoBehaviour {
 			} else {
 				menutabs = Menutabs.Pause;
 				inPause = true;
+				Time.timeScale = 0;
+			}
+
+			CheckTab ();
+		}
+	}
+
+	void UpgradeTab(){
+		if (Input.GetButtonDown ("Upgrades")) {
+			if (inUpgrades){
+				menutabs = Menutabs.Gameplay;
+				inUpgrades = false;
+				Time.timeScale = 1;
+				menuObjects [(int)Menutabs.Upgrade].GetComponent<Upgrade> ().AddPoints ();
+			} else {
+				menutabs = Menutabs.Upgrade;
+				inUpgrades = true;
 				Time.timeScale = 0;
 			}
 
