@@ -9,7 +9,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 
 	public float maxHealth = 5;
-	public float expGiving;
+	public float expGiving = 1;
 	[HideInInspector] public float 	curHealth;
 	public LevelSystem levelSystem;
 

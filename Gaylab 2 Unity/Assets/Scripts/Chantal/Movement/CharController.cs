@@ -22,7 +22,7 @@ public class CharController : MonoBehaviour {
 	public float dashSpeed = 800;
 	public float dashDistrance = 10;
 	public float dashCooldown = 2;
-	public float dashDmg = 0;
+	[HideInInspector] public float dashDmg = 0;
 
 	public float jumpStrength = 1;
 	public int maxJumpCount = 1;
@@ -30,25 +30,14 @@ public class CharController : MonoBehaviour {
 	[HideInInspector] public bool canJump = false;
 
 	private Vector3 offsetPos;
+	RaycastHit hit;
 
 	void FixedUpdate () {
 		RotateView ();
 		Movement ();
 		Jump ();
 		DashDistance ();
-//		DrawDebugs ();
 	}
-
-//	void DrawDebugs(){
-//		// rot check
-//		Debug.DrawRay (transform.position, transform.forward * 100, Color.cyan);
-//
-//		// dir check
-//		Debug.DrawRay(offsetPos, -transform.right 	* range * 25, 	Color.magenta);
-//		Debug.DrawRay(offsetPos, transform.right 	* range * 25, 	Color.red);
-//		Debug.DrawRay(offsetPos, -transform.forward * range * 25, 	Color.blue);
-//		Debug.DrawRay(offsetPos, transform.forward 	* range * 25, 	Color.green);
-//	}
 
 	public void RotateView(){
 		rot.x -= Input.GetAxis ("Mouse Y") * rotateSpeed * Time.deltaTime;
@@ -98,6 +87,14 @@ public class CharController : MonoBehaviour {
 	public IEnumerator StartDash (Vector3 moveDir){
 		mayDash = false;
 		oldPos = transform.position; 
+
+		if (Physics.Raycast (offsetPos, moveDir, out hit, dashDistrance) && dashDmg != 0) {
+			if (hit.transform.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+				Transform enemy = hit.transform.root;
+				Physics.IgnoreLayerCollision (enemy.gameObject.layer, gameObject.layer);
+				enemy.GetComponent<EnemyHealth> ().CheckHealth (dashDmg);
+			} 
+		}
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
 		rb.AddRelativeForce(moveDir * dashSpeed);
