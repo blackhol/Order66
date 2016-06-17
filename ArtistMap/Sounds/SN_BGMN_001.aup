@@ -1,0 +1,177 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="SN_MEMU_001_data" version="1.3.0" audacityversion="2.1.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="2.2815382041" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="major_brand" value="mp42"/>
+		<tag name="Encoding time" value="2016-04-13 13:43:11"/>
+		<tag name="Software" value="Lavf54.20.4"/>
+		<tag name="compatible_brands" value="isommp42"/>
+		<tag name="minor_version" value="0"/>
+	</tags>
+	<wavetrack name="Amazing Adolf Hitler Speech - Our enemies today face the entire German Volk!" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2782080">
+				<waveblock start="0">
+					<simpleblockfile filename="e000105b.au" len="193865" min="-0.17984" max="0.174507" rms="0.050913"/>
+				</waveblock>
+				<waveblock start="193865">
+					<simpleblockfile filename="e00014c0.au" len="193866" min="-0.188177" max="0.192566" rms="0.073716"/>
+				</waveblock>
+				<waveblock start="387731">
+					<simpleblockfile filename="e00019e9.au" len="262144" min="-0.197831" max="0.197398" rms="0.06912"/>
+				</waveblock>
+				<waveblock start="649875">
+					<simpleblockfile filename="e0001060.au" len="262144" min="-0.188037" max="0.184847" rms="0.071847"/>
+				</waveblock>
+				<waveblock start="912019">
+					<simpleblockfile filename="e0001d51.au" len="262144" min="-0.214324" max="0.216688" rms="0.088123"/>
+				</waveblock>
+				<waveblock start="1174163">
+					<simpleblockfile filename="e00015a5.au" len="262144" min="-0.19142" max="0.190791" rms="0.065732"/>
+				</waveblock>
+				<waveblock start="1436307">
+					<simpleblockfile filename="e0001580.au" len="262144" min="-0.209128" max="0.187654" rms="0.054509"/>
+				</waveblock>
+				<waveblock start="1698451">
+					<simpleblockfile filename="e00014ee.au" len="262144" min="-0.189384" max="0.185413" rms="0.099989"/>
+				</waveblock>
+				<waveblock start="1960595">
+					<simpleblockfile filename="e0001d86.au" len="262144" min="-0.182943" max="0.186544" rms="0.088213"/>
+				</waveblock>
+				<waveblock start="2222739">
+					<simpleblockfile filename="e0001527.au" len="262144" min="-0.183765" max="0.176429" rms="0.094991"/>
+				</waveblock>
+				<waveblock start="2484883">
+					<simpleblockfile filename="e0001d30.au" len="148598" min="-0.173531" max="0.177091" rms="0.083357"/>
+				</waveblock>
+				<waveblock start="2633481">
+					<simpleblockfile filename="e0001cef.au" len="148599" min="-0.170654" max="0.169419" rms="0.05388"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Amazing Adolf Hitler Speech - Our enemies today face the entire German Volk!" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2782080">
+				<waveblock start="0">
+					<simpleblockfile filename="e000113d.au" len="193865" min="-0.17298" max="0.17601" rms="0.050916"/>
+				</waveblock>
+				<waveblock start="193865">
+					<simpleblockfile filename="e0001843.au" len="193866" min="-0.185717" max="0.191485" rms="0.073827"/>
+				</waveblock>
+				<waveblock start="387731">
+					<simpleblockfile filename="e00012b9.au" len="262144" min="-0.214872" max="0.213195" rms="0.069351"/>
+				</waveblock>
+				<waveblock start="649875">
+					<simpleblockfile filename="e0001094.au" len="262144" min="-0.188004" max="0.184667" rms="0.071894"/>
+				</waveblock>
+				<waveblock start="912019">
+					<simpleblockfile filename="e000170e.au" len="262144" min="-0.22888" max="0.204717" rms="0.087973"/>
+				</waveblock>
+				<waveblock start="1174163">
+					<simpleblockfile filename="e000102b.au" len="262144" min="-0.195142" max="0.186642" rms="0.065368"/>
+				</waveblock>
+				<waveblock start="1436307">
+					<simpleblockfile filename="e0001f7e.au" len="262144" min="-0.218029" max="0.193161" rms="0.054258"/>
+				</waveblock>
+				<waveblock start="1698451">
+					<simpleblockfile filename="e0001612.au" len="262144" min="-0.20271" max="0.190664" rms="0.100024"/>
+				</waveblock>
+				<waveblock start="1960595">
+					<simpleblockfile filename="e0001867.au" len="262144" min="-0.191723" max="0.193241" rms="0.08706"/>
+				</waveblock>
+				<waveblock start="2222739">
+					<simpleblockfile filename="e0001aed.au" len="262144" min="-0.178297" max="0.180967" rms="0.095087"/>
+				</waveblock>
+				<waveblock start="2484883">
+					<simpleblockfile filename="e00013f4.au" len="148598" min="-0.178879" max="0.180221" rms="0.083356"/>
+				</waveblock>
+				<waveblock start="2633481">
+					<simpleblockfile filename="e0001d9a.au" len="148599" min="-0.170846" max="0.173453" rms="0.05389"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="German National Anthem (heavy metal version)" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2782080">
+				<waveblock start="0">
+					<simpleblockfile filename="e00008e6.au" len="262144" min="-0.501351" max="0.506721" rms="0.104284"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000923.au" len="262144" min="-0.454386" max="0.518948" rms="0.131328"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000907.au" len="262144" min="-0.595196" max="0.471368" rms="0.129533"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e00008c4.au" len="262144" min="-0.512055" max="0.574045" rms="0.128313"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0000a92.au" len="262144" min="-0.497636" max="0.541125" rms="0.134024"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000a10.au" len="262144" min="-0.570832" max="0.645079" rms="0.139531"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="e00009a5.au" len="262144" min="-0.627882" max="0.680083" rms="0.170968"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="e0000a27.au" len="262144" min="-0.655137" max="0.665273" rms="0.16779"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="e0000c8d.au" len="262144" min="-0.619609" max="0.627283" rms="0.176276"/>
+				</waveblock>
+				<waveblock start="2359296">
+					<simpleblockfile filename="e00002ea.au" len="262144" min="-0.638658" max="0.554755" rms="0.148661"/>
+				</waveblock>
+				<waveblock start="2621440">
+					<simpleblockfile filename="e000079c.au" len="160640" min="-0.330173" max="0.360785" rms="0.065181"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="German National Anthem (heavy metal version)" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2782080">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000e54.au" len="262144" min="-0.474627" max="0.483831" rms="0.103214"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000f58.au" len="262144" min="-0.479498" max="0.516816" rms="0.130552"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000e6e.au" len="262144" min="-0.593095" max="0.483828" rms="0.129281"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000c6b.au" len="262144" min="-0.525503" max="0.574396" rms="0.127247"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e000098e.au" len="262144" min="-0.490421" max="0.535938" rms="0.133018"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000ad2.au" len="262144" min="-0.56607" max="0.640908" rms="0.138837"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="e00009fd.au" len="262144" min="-0.619583" max="0.657912" rms="0.170528"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="e0000726.au" len="262144" min="-0.663815" max="0.647932" rms="0.166992"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="e00000a8.au" len="262144" min="-0.602477" max="0.637977" rms="0.175897"/>
+				</waveblock>
+				<waveblock start="2359296">
+					<simpleblockfile filename="e00005da.au" len="262144" min="-0.610778" max="0.57236" rms="0.149134"/>
+				</waveblock>
+				<waveblock start="2621440">
+					<simpleblockfile filename="e000037c.au" len="160640" min="-0.330173" max="0.360799" rms="0.065184"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
